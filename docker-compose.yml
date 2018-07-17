@@ -1,0 +1,9 @@
+version: '3'
+services:
+  axondb:
+    build: ./docker/axondb
+    ports:
+      - "8023:8023"
+      - "8123:8123"
+    environment:
+      - "axoniq.axondb.hostname=localhost"

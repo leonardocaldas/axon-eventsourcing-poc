@@ -1,0 +1,37 @@
+spring:
+  application:
+    name: axon-fun
+  h2:
+    console:
+      enabled: true
+  jpa:
+    hibernate:
+      ddl-auto: update
+  datasource:
+    url: jdbc:h2:~/bankdb
+
+axoniq:
+  axondb:
+    servers: localhost
+    token:  4e173955-f887-465a-a7d8-2fdbca7e4e37
+    connectionRetryCount: 10
+    flow-control:
+      initial-nr-of-permits: 10000
+      new-permits-threshold: 1000
+      nr-of-new-permits: 10000
+    ssl:
+      cert-file: resources/axoniq-public.crt
+      enabled: false
+
+# Full authentication is required to access actuator endpoints since spring boot 1.5.1.RELEASE
+management:
+  security:
+    enabled: false
+server:
+  port: 8081
+
+logging:
+  level:
+    com.axoniq.eventstore: DEBUG
+
+
